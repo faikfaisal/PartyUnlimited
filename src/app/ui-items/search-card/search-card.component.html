@@ -4,14 +4,11 @@
       <div class="card-block">
         <h4 class="card-title" style="color: #FFA500;">Search your next party</h4>
         <div id="custom-search-input">
-          <div class="input-group col-lg-10 col-md-8 col-sm-6">
-            <input #searchBox type="text" class="search-query form-control" placeholder="Search"/>
-            <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button"
-                                            (click)="updateSearchedParties(searchBox.value)">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
+          <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+            <input class="form-control" type="text" style="height:38px;" [ngModel]="searchText" (ngModelChange)="onChange($event)" placeholder="Search"/>
           </div>
         </div>
       </div>

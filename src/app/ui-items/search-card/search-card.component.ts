@@ -11,6 +11,7 @@ import {Party} from "../../party/model/party";
 export class SearchCardComponent implements OnInit {
 
   private parties: Party[];
+  public searchText: string;
   updatedParties: EventEmitter<any> = new EventEmitter();
 
   constructor(public partyService: PartyService) {
@@ -18,6 +19,11 @@ export class SearchCardComponent implements OnInit {
 
   ngOnInit() {
     this.partyService.retrieveParties().then(parties => this.parties = parties);
+  }
+
+  onChange(newValue) {
+    let parties = this.parties.filter(party => party.name.toLowerCase().includes(newValue.toLowerCase()));
+    this.updatedParties.emit(parties);
   }
 
   updateSearchedParties(name: string) {
