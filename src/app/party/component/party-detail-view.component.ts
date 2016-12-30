@@ -25,12 +25,7 @@ export class PartyDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Called");
     this.address = this.party.venue.address;
-    console.log(this.address);
-    // this.route.params
-    //   .switchMap((params: Params) => this.partyService.getParty(+params['id']))
-    //   .subscribe(party => this.party = party);
   }
 
   goBack(): void {

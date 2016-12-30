@@ -1,8 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from "@angular/router";
-import {PartyService} from "../party/service/party.service";
-import {Party} from "../party/model/party";
+import {PartyService} from "../../party/service/party.service";
+import {Party} from "../../party/model/party";
+
 import {Location}                 from '@angular/common';
+import {GuestListModel} from "../model/guest-list.model";
+import {PartyDetailComponent} from "../../party/component/party-detail-view.component";
 
 
 @Component({
@@ -12,7 +15,7 @@ import {Location}                 from '@angular/common';
   providers: [PartyService]
 })
 export class GuestListComponent implements OnInit {
-  public myValue: number = 1;
+  public numberOfGuests: number = 1;
   public party: Party;
 
   constructor(private route: ActivatedRoute,
@@ -30,10 +33,12 @@ export class GuestListComponent implements OnInit {
   }
 
   onCounterChanges(counterValue: number) {
-    this.myValue = counterValue;
+    this.numberOfGuests = counterValue;
   }
 
   submitGuestList(): void {
-    console.log(this.myValue);
+    let guestList = new GuestListModel();
+    guestList.party = this.party;
+    guestList.numberOfGuests = this.numberOfGuests;
   }
 }
