@@ -4,14 +4,21 @@
 
 
 import {NgModule} from "@angular/core";
-import {RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {GuestListComponent} from "./view/guest-list.component";
+import {AuthGuard} from "../auth-guard.service";
 
+
+const guestListRoutes: Routes = [
+  {
+    path: 'party/:id',
+    component: GuestListComponent,
+    canActivate: [AuthGuard]
+  }
+]
 
 @NgModule({
-  imports: [RouterModule.forChild([
-    {path: 'party/:id', component: GuestListComponent}
-  ])],
+  imports: [RouterModule.forChild(guestListRoutes)],
   exports: [RouterModule]
 })
 export class GuestListRoutingModule {

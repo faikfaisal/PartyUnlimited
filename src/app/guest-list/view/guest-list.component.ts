@@ -40,5 +40,6 @@ export class GuestListComponent implements OnInit {
     let guestList = new GuestListModel();
     guestList.party = this.party;
     guestList.numberOfGuests = this.numberOfGuests;
+    console.log(""+guestList);
   }
 }

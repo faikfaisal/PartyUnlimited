@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
@@ -12,6 +12,9 @@ import {NavigationBarComponent} from './ui-items/navigation-bar/navigation-bar.c
 import {AboutComponent} from "./about/about.component";
 import {PartyModule} from "./party/party.module";
 import {GuestListModule} from "./guest-list/guest-list.module";
+
+import {AuthGuard} from "./auth-guard.service";
+import {LoginModule} from "./login/login.module";
 
 
 @NgModule({
@@ -26,7 +29,9 @@ import {GuestListModule} from "./guest-list/guest-list.module";
     HttpModule,
     AppRoutingModule,
     PartyModule,
-    GuestListModule],
+    GuestListModule,
+    LoginModule],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

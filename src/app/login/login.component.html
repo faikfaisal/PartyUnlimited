@@ -1,0 +1,32 @@
+<div class="container" *ngIf="!authService.isLoggedIn">
+  <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" name="username" id="username" required [(ngModel)]="userModel.username"
+             #username="ngModel">
+      <div [hidden]="username.valid || username.pristine"
+           class="alert alert-danger">
+        Username is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" class="form-control" id="password" required
+             [(ngModel)]="userModel.password"
+             #password="ngModel">
+    </div>
+    <div [hidden]="password.valid || password.pristine"
+         class="alert alert-danger">
+      Password is required
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+    <p>{{message}}</p>
+  </form>
+</div>
+<div class="container" *ngIf="authService.isLoggedIn">
+  <div class="row">
+    <p>You are already logged in!!!</p>
+  </div>
+</div>
+
+
