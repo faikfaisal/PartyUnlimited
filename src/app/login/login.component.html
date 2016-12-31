@@ -1,5 +1,5 @@
 <div class="container" *ngIf="!authService.isLoggedIn">
-  <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
     <div class="form-group">
       <label for="username">Username</label>
       <input type="text" class="form-control" name="username" id="username" required [(ngModel)]="userModel.username"
@@ -20,7 +20,11 @@
       Password is required
     </div>
     <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
-    <p>{{message}}</p>
+    <button type="button" class="btn btn-link">Sign Up</button>
+    <p *ngIf="!isAuthenticationError">{{message}}</p>
+    <div *ngIf="isAuthenticationError" class="alert alert-danger">
+      {{message}}
+    </div>
   </form>
 </div>
 <div class="container" *ngIf="authService.isLoggedIn">
