@@ -4,12 +4,12 @@
 
 import {NgModule} from "@angular/core";
 import {RouterModule} from "@angular/router";
-import {PartylistComponent} from "./component/partylist.component";
+import {PartylistComponent} from "./containers/partylist-card";
 
 
 @NgModule({
   imports: [RouterModule.forChild([
-    {path: 'parties', component: PartylistComponent}
+    {path: 'homescreenState', component: PartylistComponent}
   ])],
   exports: [RouterModule]
 })

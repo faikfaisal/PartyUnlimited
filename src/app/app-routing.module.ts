@@ -3,8 +3,9 @@
  */
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule}             from '@angular/core';
-import {HomescreenComponent} from "./homescreen/homescreen.component";
+import {HomescreenComponent} from "./homescreen/container/homescreen";
 import {AboutComponent} from "./about/about.component";
+
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},

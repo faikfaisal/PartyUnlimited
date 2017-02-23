@@ -22,7 +22,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
     <button type="button" class="btn btn-link">Sign Up</button>
     <p *ngIf="!isAuthenticationError">{{message}}</p>
-    <div *ngIf="isAuthenticationError" class="alert alert-danger">
+    <div *ngIf="isAuthenticationError" class="alert alert-danger" >
       {{message}}
     </div>
   </form>

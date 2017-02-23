@@ -5,7 +5,7 @@
 
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {GuestListComponent} from "./view/guest-list.component";
+import {GuestListComponent} from "./components/guest-list";
 import {AuthGuard} from "../auth-guard.service";
 
 
