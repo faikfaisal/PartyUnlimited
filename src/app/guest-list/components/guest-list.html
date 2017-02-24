@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center">NUMBER OF GUESTS</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <app-counter class="text-center"
+                   [counter]="numberOfGuests$ | async"
+                   (increaseCounterValueEmitter)="increaseCounter($event)"
+                   (decreaseCounterValueEmitter)="decreaseCounter($event)"
+      ></app-counter>
+    </div>
+  </div>
+</div>
+<div *ngIf="party$" style="padding-top: 70px;">
+  <app-party-component [party]="party$ | async"></app-party-component>
+</div>
+<div class="container ">
+  <div class="row" style="margin-top: 5px;">
+    <div class="col-lg-6">
+      <button class="btn btn-secondary" (click)="goToHome()">Home</button>
+      <button class="btn btn-primary" (click)="submitGuestList()">Submit</button>
+    </div>
+  </div>
+</div>

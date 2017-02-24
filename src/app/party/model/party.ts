@@ -18,7 +18,23 @@ export class Venue {
   }
 }
 export class Party {
-  constructor(public id: number, public name: string, public venue: Venue, public description: string,
+  constructor(public id: string, public name: string, public venue: Venue, public description: string,
               public dateTime: Date) {
   }
 }
+
+// export interface Party {
+//   id: string;
+//   name: string;
+//   venue: {
+//     name: string;
+//     address: {
+//       street: string;
+//       province: string;
+//       city: string;
+//       postalCode: string;
+//       apartment?: string;
+//       country: "Canada",
+//     }
+//   };
+// }

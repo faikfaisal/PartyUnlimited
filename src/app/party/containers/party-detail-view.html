@@ -1,0 +1,28 @@
+<div class="container rounded" *ngIf="party">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">{{party.name}}</h2>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 20px;">
+    <div class="col-md-8 col-lg-8 col-sm-12">
+      <h4>Description</h4>
+      <p>{{party.description}}</p>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-12">
+      <h4>DATE/TIME</h4>
+      <p>{{party.dateTime | date:'medium'}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-lg-4 col-sm-12 offset-md-8">
+      <h4>Location</h4>
+      <p>{{party.venue.name}}<br/>
+      <i *ngIf="address">{{address}}</i><p>
+      <a *ngIf="address" target="_black" href="http://maps.google.com/?q={{address}}">Click to view Map</a>
+    </div>
+  </div>
+</div>
+
+

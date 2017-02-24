@@ -1,0 +1,9 @@
+<app-search-card
+  [searchText]="searchText$  | async"
+  (searchContentEmitter)="handleSearchText($event)">
+</app-search-card>
+<app-partylist
+  [parties]="parties$ | async"
+  (selectedPartyEmitter)="handleSelectedParty($event)"
+></app-partylist>
+

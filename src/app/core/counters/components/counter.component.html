@@ -1,0 +1,10 @@
+<div class="counter__container">
+  <button id="decrementer" (click)="decreaseCounterValueEmitter.emit(counterValue$)" class="counter__button">
+    -
+  </button>
+  <input type="text" class="counter__input" [(ngModel)]="counter" [value]="counter" readonly>
+  <button id="incrementer" (click)="increaseCounterValueEmitter.emit(counterValue$)" class="counter__button">
+    +
+  </button>
+</div>
+

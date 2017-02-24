@@ -14,11 +14,10 @@ export class PartyService {
     let trist = new Venue("Trist", address);
 
 
-
-    let party = new Party(1, "Color festival", trist, "Playing with color", new Date('1968-11-16T00:00:00'));
-    let partyOne = new Party(2, "semi festival", trist, "some festival", new Date('1968-11-16T00:00:00'));
-    let partyTwo = new Party(3, "yello festival", trist, "yellow with coor", new Date('1968-11-16T00:00:00'));
-    let partyThree = new Party(4, "Oshiega festival", trist, "Oshiyega with coor", new Date('1968-11-16T00:00:00'));
+    let party = new Party("1", "Color festival", trist, "Playing with color", new Date('1968-11-16T00:00:00'));
+    let partyOne = new Party("2", "semi festival", trist, "some festival", new Date('1968-11-16T00:00:00'));
+    let partyTwo = new Party("3", "yello festival", trist, "yellow with coor", new Date('1968-11-16T00:00:00'));
+    let partyThree = new Party("4", "Oshiega festival", trist, "Oshiyega with coor", new Date('1968-11-16T00:00:00'));
 
 
     let list_of_parties: Party[] = [
@@ -31,19 +30,21 @@ export class PartyService {
     return list_of_parties;
   }
 
-  retrieveParties(): Promise<Party[]> {
-
-    return Promise.resolve(this.getMockParties());
-  }
-
   getParties(): Observable<Party[]> {
 
     return Observable.of(this.getMockParties());
   }
 
+  searchParty(query: string): Observable<Party[]> {
 
-  getParty(id: number): Promise<Party> {
-    return this.retrieveParties().then(parties => parties.find(party => party.id === id));
+    if (query == "") {
+      return this.getParties();
+    }
+
+    return this.getParties().map(
+      parties => parties.filter(
+        party => party.name.toLowerCase().includes(query)
+      )
+    );
   }
-
 }
